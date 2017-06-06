@@ -4,4 +4,5 @@ python align_db.py \
  /home/chenzhijian/data/lfw/lfw_aligned/ \
  face \
  --crop_size 160 \
- --pos_y 50
+ --pos_y 50 \
+ --dist_y 60

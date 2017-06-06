@@ -10,7 +10,7 @@ import sys
 import json
 import time
 import numpy as np
-import normalize
+from normalize import normalize
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
@@ -73,9 +73,10 @@ def main(args):
 		path = '%s_%s_%s' % (path[:-5],args.img_type,path[-5:])
 	else:
 		path = '%s_%s_.jpg' % (path,normalize_type)
+        break
         savepath = os.path.join(args.db_dst, path)
         cv2.imwrite(savepath, res)
-    print '\ndone in %.2g min' % ((time.time()-beg_time) / 1000 / 60)
+    print '\ndone in %.2g s' % (time.time()-beg_time)
 
 if __name__ == '__main__':
     main(parse_arguments(sys.argv[1:]))

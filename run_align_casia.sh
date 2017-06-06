@@ -4,4 +4,5 @@ python align_db.py \
  /home/chenzhijian/data/casia/casia_aligned \
  face \
  --crop_size 180 \
- --pos_y 60
+ --pos_y 60 \
+ --dist_y 60
