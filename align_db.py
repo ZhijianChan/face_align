@@ -11,6 +11,11 @@ import json
 import time
 import numpy as np
 from normalize import normalize
+from crop_patch import crop_nose
+from crop_patch import crop_left_eye
+from crop_patch import crop_right_eye
+from crop_patch import crop_left_mouth
+from crop_patch import crop_right_mouth
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser()
@@ -28,6 +33,10 @@ def parse_arguments(argv):
         help='Distance between eye center and mouth center', default=48)
     parser.add_argument('--pos_y', type=int,
         help='Y-coordinate of eye center', default=48)
+    parser.add_argument('--sub_dist', type=int,
+        help='sub-distance between specific keypoints', default=60)
+    parser.add_argument('--region', type=int,
+        help='crop region', default=1, choices=[1,2,3,4,5,6])
     return parser.parse_args(argv)
 
 def main(args):
@@ -64,8 +73,19 @@ def main(args):
         pts = np.array(pts)
 	pts[:,0] = pts[:,0] * w
 	pts[:,1] = pts[:,1] * h
-        #3: Normalize
-        res = normalize.align(img, pts, args.crop_size, args.dist_y, args.pos_y)
+        #3: Image process
+        if args.region == 1:   # crop whole face
+		res = normalize.align(img, pts, args.crop_size, args.dist_y, args.pos_y)
+        elif args.region == 2: # crop left eye
+		res = crop_left_eye.crop(img, pts, args.crop_size, args.sub_dist)
+        elif args.region == 3: # crop right eye
+		res = crop_right_eye.crop(img, pts, args.crop_size, args.sub_dist)
+        elif args.region == 4: # crop nose
+		res = crop_nose.crop(img, pts, args.crop_size, args.sub_dist)
+        elif args.region == 5: # crop left mouth
+		res = crop_left_mouth.crop(img, pts, args.crop_size, args.sub_dist)
+        elif args.region == 6: # crop right mouth
+		res = crop_right_mouth.crop(img, pts, args.crop_size, args.sub_dist)
         #4: Save normalized image
 	if path[-4] == '.':
 		path = '%s_%s_%s' % (path[:-4],args.img_type,path[-4:])
@@ -73,10 +93,9 @@ def main(args):
 		path = '%s_%s_%s' % (path[:-5],args.img_type,path[-5:])
 	else:
 		path = '%s_%s_.jpg' % (path,normalize_type)
-        break
         savepath = os.path.join(args.db_dst, path)
         cv2.imwrite(savepath, res)
-    print '\ndone in %.2g s' % (time.time()-beg_time)
+    print '\ndone in %.2g minutes' % ((time.time()-beg_time)/60.)
 
 if __name__ == '__main__':
     main(parse_arguments(sys.argv[1:]))
