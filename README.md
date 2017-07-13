@@ -29,26 +29,26 @@ Therefore, 2 scripts are provided: xxx_casia.sh for train set and xxx_lfw.sh for
 
 ### Demo
 #### normalization
-| Frontal Face | Side Face |
-| :----------: |:---------:|
-| ![Alt text](/demo_pictures/align_f.jpg) | ![Alt text](/demo_pictures/align_s.jpg) |
-#### crop nose
-| Frontal Face | Side Face |
-| :----------: |:---------:|
-| ![Alt text](/demo_pictures/nose_f.jpg) | ![Alt text](/demo_pictures/nose_s.jpg) |
-#### crop left eye
-| Frontal Face | Side Face |
-| :----------: |:---------:|
-| ![Alt text](/demo_pictures/left_eye_f.jpg) | ![Alt text](/demo_pictures/left_eye_s.jpg) |
-#### crop right eye
-| Frontal Face | Side Face |
-| :----------: |:---------:|
-| ![Alt text](/demo_pictures/right_eye_f.jpg) | ![Alt text](/demo_pictures/right_eye_s.jpg) |
-#### crop left mouth corner
-| Frontal Face | Side Face |
-| :----------: |:---------:|
-| ![Alt text](/demo_pictures/left_mouth_f.jpg) | ![Alt text](/demo_pictures/left_mouth_s.jpg) |
-#### crop right mouth corner
-| Frontal Face | Side Face |
-| :----------: |:---------:|
-| ![Alt text](/demo_pictures/right_mouth_f.jpg) | ![Alt text](/demo_pictures/right_mouth_s.jpg) |
+| Frontal Face | Side Face | LFW test (acc/vr@far=0.001%) |
+| :----------: |:---------:|:--------------:|
+| ![Alt text](/demo_pictures/align_f.jpg) | ![Alt text](/demo_pictures/align_s.jpg) | 98.02%/89.0% |
+#### nose
+| Frontal Face | Side Face | LFW test (acc/vr@far=0.001%) |
+| :----------: |:---------:|:--------------:|
+| ![Alt text](/demo_pictures/nose_f.jpg) | ![Alt text](/demo_pictures/nose_s.jpg) | 95.48%/64.47% |
+#### left eye
+| Frontal Face | Side Face | LFW test (acc/vr@far=0.001%) |
+| :----------: |:---------:|:--------------:|
+| ![Alt text](/demo_pictures/left_eye_f.jpg) | ![Alt text](/demo_pictures/left_eye_s.jpg) | 94.58%/56.20% |
+#### right eye
+| Frontal Face | Side Face | LFW test (acc/vr@far=0.001%) |
+| :----------: |:---------:|:--------------:|
+| ![Alt text](/demo_pictures/right_eye_f.jpg) | ![Alt text](/demo_pictures/right_eye_s.jpg) | 94.62%/51.03% |
+#### left mouth corner
+| Frontal Face | Side Face | LFW test (acc/vr@far=0.001%) |
+| :----------: |:---------:|:--------------:|
+| ![Alt text](/demo_pictures/left_mouth_f.jpg) | ![Alt text](/demo_pictures/left_mouth_s.jpg) | 93.15%/48.83% |
+#### right mouth corner
+| Frontal Face | Side Face | LFW test (acc/vr@far=0.001%) |
+| :----------: |:---------:|:--------------:|
+| ![Alt text](/demo_pictures/right_mouth_f.jpg) | ![Alt text](/demo_pictures/right_mouth_s.jpg) | 94.12%/62.74% |
