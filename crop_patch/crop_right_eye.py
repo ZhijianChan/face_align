@@ -31,6 +31,8 @@ def crop(img, pts, crop_size = 160, sub_dist = 50):
     scale_ = sub_dist / max_sub
     er_x = int(pts_[1,0] * scale_)
     er_y = int(pts_[1,1] * scale_)
+    if scale_ <= 0:
+        return None
     img = cv2.resize(img, None, fx=scale_, fy=scale_, interpolation=cv2.INTER_CUBIC)
     #Step 3: Crop
     res =  np.zeros((crop_size, crop_size, 3),dtype=np.uint8)
