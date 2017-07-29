@@ -37,18 +37,14 @@ def main(args):
     beg_time = time.time()
     keys_ = ['eye_left', 'eye_right', 'nose', 'mouth_left', 'mouth_right']
     for i,line in enumerate(landmarks_data):
-        '''
-        sys.stdout.write('\rprocess: %d' % (i+1))
-        sys.stdout.flush()
-        '''
         tmp = json.loads(line)
         path = tmp.keys()[0]
         #1: Read Image
         imgpath = os.path.join(args.db_src, path)
         imgpath = imgpath.encode('utf-8')
-        print 'process:',i,':',imgpath
+        print 'process [%d]: %s' % (i, imgpath)
         img = cv2.imread(imgpath)
-        if img is None:
+        if img is None or len(img.shape) != 3:
             continue
         (h,w,_) = img.shape
         #2: Parse pts

@@ -9,12 +9,16 @@ if [[ $# -ne 1 ]]; then
     echo '  6 -- right mouth'
 fi
 
+db_src=/exports_data/origin_face/casia_clean_face/data/
+db_dst=/exports_data/czj/data/casia/casia_aligned
+landmark=/exports_data/origin_face/casia_clean_face/casia_clean_facebox_landmark.json
+
 if [[ $1 -eq 2 ]]; then
     # left-eye patch
     python align_db.py \
-        /exports_data/origin_face/casia_clean_face/data/ \
-        /exports_data/origin_face/casia_clean_face/casia_clean_facebox_landmark.json \
-        /home/chenzhijian/data/casia/casia_aligned \
+        $db_src \
+        $landmark \
+        $db_dst \
         lefteye \
         --region 2 \
         --crop_size 160 \
@@ -22,9 +26,9 @@ if [[ $1 -eq 2 ]]; then
 elif [[ $1 -eq 3 ]]; then
     # right eye patch
     python align_db.py \
-        /exports_data/origin_face/casia_clean_face/data/ \
-        /exports_data/origin_face/casia_clean_face/casia_clean_facebox_landmark.json \
-        /exports_data/czj/data/casia/casia_aligned \
+        $db_src \
+        $landmark \
+        $db_dst \
         righteye \
         --region 3 \
         --crop_size 160 \
@@ -32,9 +36,9 @@ elif [[ $1 -eq 3 ]]; then
 elif [[ $1 -eq 4 ]]; then
     # nose tip patch
     python align_db.py \
-        /exports_data/origin_face/casia_clean_face/data/ \
-        /exports_data/origin_face/casia_clean_face/casia_clean_facebox_landmark.json \
-        /home/chenzhijian/data/casia/casia_aligned \
+        $db_src \
+        $landmark \
+        $db_dst \
         nose \
         --region 4 \
         --crop_size 160 \
@@ -42,9 +46,9 @@ elif [[ $1 -eq 4 ]]; then
 elif [[ $1 -eq 5 ]]; then
     # left mouth corner patch
     python align_db.py \
-        /exports_data/origin_face/casia_clean_face/data/ \
-        /exports_data/origin_face/casia_clean_face/casia_clean_facebox_landmark.json \
-        /home/chenzhijian/data/casia/casia_aligned \
+        $db_src \
+        $landmark \
+        $db_dst \
         leftmouth \
         --region 5 \
         --crop_size 160 \
@@ -52,9 +56,9 @@ elif [[ $1 -eq 5 ]]; then
 elif [[ $1 -eq 6 ]]; then
     # right mouth corner patch
     python align_db.py \
-        /exports_data/origin_face/casia_clean_face/data/ \
-        /exports_data/origin_face/casia_clean_face/casia_clean_facebox_landmark.json \
-        /home/chenzhijian/data/casia/casia_aligned \
+        $db_src \
+        $landmark \
+        $db_dst \
         rightmouth \
         --region 6 \
         --crop_size 160 \
